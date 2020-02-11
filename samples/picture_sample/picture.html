@@ -1,0 +1,47 @@
+
+<h2 class="text-title tm0 bm24">{{ 'PICTURE_SAMPLE' | translate }}</h2>
+
+<h3 class="text-subhead2">{{ 'PICTURE_EDIT' | translate }} </h3>
+
+<div class="app-picture">
+    <strong>{{ 'PICTURE_ENABLE_DISABLE' | translate }}</strong>: {{pictureDisabled}};
+    <pip-picture-edit
+            pip-picture-id="newPicture"
+            pip-created="obj.picture = $event.sender"
+            pip-changed="onPictureNewChanged($event)"
+            pip-rebind="true"
+            pip-default-text="'Change Picture'"
+            ng-disabled="pictureDisabled">
+    </pip-picture-edit>
+</div>
+
+<md-button ng-click="onNewSaveClick()">{{ 'SAVE' | translate }}</md-button>
+
+
+<div class="app-picture">
+    <strong>{{ 'PICTURE_ENABLE_DISABLE' | translate }}</strong>: {{pictureDisabled}};
+    <strong>id</strong>: {{pictureEditId}}
+
+    <pip-picture-edit
+            pip-picture="pictureAttachment"
+            pip-created="onPictureCreated($event)"
+            pip-changed="onPictureChanged($event)"
+            pip-rebind="true"
+            pip-default-text="'Change Picture'"
+            ng-disabled="pictureDisabled">
+    </pip-picture-edit>    
+</div>
+
+<md-button ng-click="onSaveClick()">{{ 'SAVE' | translate }}</md-button>
+<md-button ng-click="onResetClick()">{{ 'RESET' | translate }}</md-button>
+<md-button ng-click="pictureDisabled = !pictureDisabled">{{ 'ENABLE_DISABLE' | translate }}</md-button>
+
+<h3 class="text-subhead2">{{ 'PICTURE_BY_ID' | translate }} </h3>
+
+<div class="app-picture">
+    <div>
+        <pip-picture class="image-square" pip-picture-id="pictureEditId"></pip-picture>
+    </div>
+</div>
+
+

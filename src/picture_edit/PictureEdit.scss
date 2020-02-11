@@ -1,0 +1,164 @@
+$color-blue-hue: blue;
+$color-pink-hue: pink;
+$color-orange-hue: orange;
+$color-amber-hue: amber;
+$color-green-hue: green;
+$color-navy-hue: navy;
+$color-grey-hue: grey;
+$color-dark-hue: dark;
+$color-black-hue: black;
+
+$picture-side:  80px;
+
+.pip-picture-upload.pip-picture-drop {
+    border-style: dashed;
+    cursor: pointer;
+
+    //&:focus {
+    //    border: 1px solid $color-hue-bg;//blue;
+    //}
+}
+
+.pip-picture-upload {
+    position: relative;
+    width: $picture-side;
+    height: $picture-side;
+    border: 1px solid #c9c9c9;
+    border-radius: $border-radius;
+    background-color: #f0f0f0;
+    overflow: hidden;
+
+    &.pip-picture-error {
+        border-color: rgb(255,82,82);
+        border-style: dashed;
+        .pip-default-text span {
+            padding: 4px;
+            display: inline-block;
+            font-size: 10px;
+            line-height: 1.2em; 
+            vertical-align: middle;
+            color: rgb(255,82,82);
+            top: 24px;
+        }        
+    }
+
+    img {
+        position: absolute; 
+        top: 0px;
+        left: 0px; 
+        border-radius: $border-radius;
+
+        display: block;
+        width: 100%; 
+        height: auto;
+    }
+
+    img.pip-image-new {
+        opacity: 0.5;
+    }
+
+    .pip-picture-drop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        width: $picture-side;
+        height: $picture-side;
+        cursor: pointer; 
+    }
+
+    md-progress-linear {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: $picture-side;
+    }
+
+    .md-button.md-icon-button {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        @include circle(20px);
+        min-width: 20px !important;
+        min-height: 20px !important;
+        background-color: rgba(0, 0, 0, 0.25);
+        margin: 0px;
+        padding: 0px;
+
+        & > md-icon {
+            min-width: 20px !important;
+            min-height: 20px !important;
+            height: 20px;
+            width: 20px;
+            fill: white;
+        }
+
+        &:hover, &:focus, &:active {
+            background-color: rgba(0, 0, 0, 0.54)!important;
+        }
+    }
+
+    .pip-default-icon,
+    .pip-default-text {
+        position: absolute;
+        display: block;
+        top: 0px;
+        left: 0px;
+        width: $picture-side;
+        height: $picture-side;
+        line-height: $picture-side;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .pip-default-icon md-icon {
+        display: inline-block;
+        vertical-align: middle;
+        //font-size: $picture-side - 6px;
+        width: $picture-side - 6px;
+        height: $picture-side - 6px;
+        color: #c9c9c9;
+        //line-height: 1em;
+    }
+
+    .pip-default-text span {
+        padding: 4px;
+        display: inline-block;
+        font-size: 10px;
+        line-height: 1.2em; //$line-height-string; //1.2em; // Kate
+        vertical-align: middle;
+        color: #3f3f3f;
+    }
+}
+
+
+@mixin generate-picture-focus ($name, $color) {
+    #{$name} {
+
+        .pip-picture-upload.pip-picture-drop {
+            &:focus {
+                border: 1px solid $color!important;
+            }
+        }
+
+        .pip-picture-upload {
+            &:focus {
+                border: 1px solid $color!important;
+            }
+        }
+
+    }
+}
+
+/*
+.generate-picture-focus(blue,                $color-blue-hue);
+.generate-picture-focus(pink,                $color-pink-hue);
+.generate-picture-focus(orange,              $color-orange-hue);
+.generate-picture-focus(amber,               $color-amber-hue);
+.generate-picture-focus(green,               $color-green-hue);
+.generate-picture-focus(navy,                $color-navy-hue);
+.generate-picture-focus(grey,                $color-grey-hue);
+.generate-picture-focus(dark,                $color-dark-hue);
+.generate-picture-focus(black,               $color-black-hue);
+*/

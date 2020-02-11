@@ -1,0 +1,18 @@
+<svg version="1.1"
+xmlns="http://www.w3.org/2000/svg" 
+xmlns:xlink="http://www.w3.org/1999/xlink" 
+="0px" y="0px" 
+viewBox="0 0 510 510" 
+style="enable-background:new 0 0 515 515;" 
+xml:space="preserve"> 
+<defs> 
+<style type="text/css"><![CDATA[ 
+'#symbol-picture-no-border { 
+transform-origin: 50% 50%; 
+transform: scale(0.6, -0.6); 
+} 
+]]></style> 
+</defs> 
+<rect x="0" width="515" height="515"/>  
+<path id="symbol-picture-no-border" d="M120 325l136-102 69 33 136-82 0-54-410 0 0 136z m341 15c0-28-23-51-51-51-29 0-52 23-52 51 0 29 23 52 52 52 28 0 51-23 51-52z" /> 
+</svg>

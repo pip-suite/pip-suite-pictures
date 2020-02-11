@@ -1,0 +1,40 @@
+<div class="pip-picture-upload pip-picture-drop md-focused"
+	 ng-keydown="$ctrl.onKeyDown($event)"
+	 ng-class="{'pip-picture-error': $ctrl.control.state == 'error'}"
+ 	 tabindex="{{ $ctrl.ngDisabled || $ctrl.control.uploading ? -1 : 0 }}"
+	 pip-changed="$ctrl.readItemLocally(url, uriData, file, picture)"
+	 ng-disabled="$ctrl.ngDisabled"
+	 pip-multi="$ctrl.multiUpload"
+	 ng-focus="$ctrl.onFocus()"
+	 ng-blur="$ctrl.onBlur()"
+	 pip-option="$ctrl.option"
+	 pip-add-image>
+
+	<div class="pip-default-icon" ng-show="$ctrl.empty() || $ctrl.control.state == 'error'">
+		<md-icon  class="pip-picture-icon" md-svg-icon="icons:{{ $ctrl.icon }}"></md-icon>
+	</div>
+	<div class="pip-default-text" ng-show="$ctrl.control.state == 'error'">
+		<span>{{ $ctrl.errorText | translate }}</span>
+	</div>	
+	<div class="pip-default-text" ng-show="$ctrl.empty() && $ctrl.control.state != 'error'">
+		<span>{{ $ctrl.text | translate }}</span>
+	</div>
+
+	<img class="pip-picture-image"
+		 ng-src="{{ $ctrl.control.url }}"
+		 ng-show="!$ctrl.empty()  && $ctrl.control.state != 'error'"
+		 ng-class="{ 'pip-image-new': $ctrl.isUpdated(), 'cursor-default' : $ctrl.ngDisabled || $ctrl.control.uploading }"
+ 		 ui-event="{ error: '$ctrl.onImageError($event)', load: '$ctrl.onImageLoad($event)' }">
+
+	<md-button class="md-icon-button"
+			   ng-click="$ctrl.onDeleteClick($event)"
+			   tabindex="-1" aria-label="delete"
+			   ng-hide="$ctrl.empty() || $ctrl.ngDisabled"
+			   ng-disabled="$ctrl.ngDisabled || $ctrl.control.uploading">
+		<md-icon  md-svg-icon="icons:cross"></md-icon>
+	</md-button>
+
+	<md-progress-linear ng-show="$ctrl.control.uploading"
+						ng-value="$ctrl.control.progress">
+	</md-progress-linear>
+</div>

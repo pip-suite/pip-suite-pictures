@@ -1,0 +1,168 @@
+<h2 class="text-title tm0 bm24">{{ 'COLLAGE_RESIZING' | translate }}</h2>
+<div class="layout-row" >
+    <md-input-container class="rm16">
+        <label>{{ 'PICTURE_COUNT' | translate }}</label>
+        <md-select ng-model="collage.size"
+                   ng-change="onCollageSizeChange()">
+            <md-option ng-repeat="obj in collageSet" value="{{obj.id}}">
+                {{obj.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+    <md-input-container class="rm16">
+        <label>{{ 'BLOCK_SIZE' | translate }}</label>
+        <md-select ng-model="collage.blockSize">
+            <md-option ng-repeat="size in blockSizes" value="{{size.id}}">
+                {{size.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+</div>
+<div class="app-collage">
+
+    <div class="bm16"
+         ng-style="blockStyles[collage.blockSize]"
+         ng-show="collage.size == 2">
+        <pip-collage class="collage bg-red" pip-srcs="srcs_2" pip-multiple="false"></pip-collage>
+    </div>
+
+    <div class="bm16"
+         ng-style="blockStyles[collage.blockSize]"
+         ng-show="collage.size == 3">
+        <pip-collage class="collage pull-left bg-red bm16"
+                     ng-show="collage.variant == 1"
+                     pip-srcs="srcs_3" pip-multiple="false"
+                     pip-unique-code="1"
+                     pip-open="true">
+        </pip-collage>
+        <pip-collage class="collage pull-left bg-red bm16"
+                     ng-show="collage.variant == 2"
+                     pip-srcs="srcs_3"
+                     pip-multiple="false"
+                     pip-unique-code="2">
+
+        </pip-collage>
+        <pip-collage class="collage pull-left bg-red bm16"
+                     ng-show="collage.variant == 3"
+                     pip-srcs="srcs_3"
+                     pip-multiple="false"
+                     pip-unique-code="3">
+
+        </pip-collage>
+        <pip-collage class="collage pull-left bg-red bm16"
+                     ng-show="collage.variant == 4"
+                     pip-srcs="srcs_3"
+                     pip-multiple="false"
+                     pip-unique-code="4">
+
+        </pip-collage>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="bm16"
+         ng-style="blockStyles[collage.blockSize]"
+         ng-show="collage.size == 4">
+        <pip-collage class="collage pull-left bg-red bm16"
+                     ng-show="collage.variant == 1"
+                     pip-srcs="srcs_4"
+                     pip-multiple="false"
+                     pip-unique-code="1"
+                     pip-open="true">
+
+        </pip-collage>
+        <pip-collage class="collage pull-left bg-red bm16"
+                     ng-show="collage.variant == 2"
+                     pip-srcs="srcs_4"
+                     pip-multiple="false"
+                     pip-unique-code="2">
+
+        </pip-collage>
+        <pip-collage class="collage pull-left bg-red bm16"
+                     ng-show="collage.variant == 3"
+                     pip-srcs="srcs_4"
+                     pip-multiple="false"
+                     pip-unique-code="3">
+
+        </pip-collage>
+        <pip-collage class="collage pull-left bg-red bm16"
+                     ng-show="collage.variant == 4"
+                     pip-srcs="srcs_4"
+                     pip-multiple="false"
+                     pip-unique-code="4">
+
+        </pip-collage>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="bm16"
+         ng-style="blockStyles[collage.blockSize]"
+         ng-show="collage.size == 5">
+        <pip-collage class="collage pull-left bm16"
+                     ng-show="collage.variant == 1"
+                     pip-srcs="srcs_5"
+                     pip-multiple="false"
+                     pip-unique-code="1"
+                     pip-open="true">
+
+        </pip-collage>
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 2" pip-srcs="srcs_5"
+                     pip-multiple="false" pip-unique-code="2"></pip-collage>
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 3" pip-srcs="srcs_5"
+                     pip-multiple="false" pip-unique-code="3"></pip-collage>
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 4" pip-srcs="srcs_5"
+                     pip-multiple="false" pip-unique-code="4"></pip-collage>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="bm16"
+         ng-style="blockStyles[collage.blockSize]"
+         ng-show="collage.size == 6">
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 1" pip-srcs="srcs_6"
+                     pip-multiple="false" pip-unique-code="1" pip-open="true"></pip-collage>
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 2" pip-srcs="srcs_6"
+                     pip-multiple="false" pip-unique-code="2"></pip-collage>
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 3" pip-srcs="srcs_6"
+                     pip-multiple="false" pip-unique-code="3"></pip-collage>
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 4" pip-srcs="srcs_6"
+                     pip-multiple="false" pip-unique-code="4"></pip-collage>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="bm16"
+         ng-style="blockStyles[collage.blockSize]"
+         ng-show="collage.size == 7">
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 1" pip-srcs="srcs_7"
+                     pip-multiple="false" pip-unique-code="1" pip-open="true"></pip-collage>
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 2" pip-srcs="srcs_7"
+                     pip-multiple="false" pip-unique-code="2"></pip-collage>
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 3" pip-srcs="srcs_7"
+                     pip-multiple="false" pip-unique-code="3"></pip-collage>
+        <pip-collage class="collage pull-left bm16" ng-show="collage.variant == 4" pip-srcs="srcs_7"
+                     pip-multiple="false" pip-unique-code="4"></pip-collage>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="bm16"
+         ng-style="blockStyles[collage.blockSize]"
+         ng-show="collage.size == 8">
+        <pip-collage class="collage pull-left  bm16" pip-srcs="srcs_8" pip-multiple="false" pip-unique-code="1"
+                     pip-open="true"></pip-collage>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="bm16"
+         ng-style="blockStyles[collage.blockSize]"
+         ng-show="collage.size == 9">
+        <pip-collage class="collage pull-left bm16" pip-srcs="srcs_9" pip-multiple="false"></pip-collage>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="bm16"
+         ng-style="blockStyles[collage.blockSize]"
+         ng-show="collage.size == 10">
+        <pip-collage class="collage pull-left bm16" pip-srcs="srcs_10" pip-multiple="true"></pip-collage>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+

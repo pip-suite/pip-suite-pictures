@@ -1,0 +1,186 @@
+// $file CSS styles for avatar controls
+// $copyright Digital Living Software Corp. 2014-2015
+$color-0:                #ef5350;
+$color-1:                #ec407a;
+$color-2:                #ab47bc;
+$color-3:                #7e57c2;
+$color-4:                #5c6bc0;
+$color-5:                #03a9f4;
+$color-6:                #00bcd4;
+$color-7:                #009688;
+$color-8:                #4caf50;
+$color-9:                #8bc34a;
+$color-10:               #cddc39;
+$color-11:               #ffc107;
+$color-12:               #ff9800;
+$color-13:               #ff5722;
+$color-14:               #795548;
+$color-15:               #607d8b;
+
+.pip-avatar {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  outline: none!important;
+  text-align: center;
+
+  & > md-icon {
+    display: block;
+    position: relative;
+  }
+
+  & > div {
+    position: absolute;
+    display: none;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: $font-family;
+    font-weight: 500; 
+    color: $color-content;
+    text-align: center;
+    text-transform: uppercase;
+
+    font-size: 48px;
+    line-height: 80px;     
+  }
+}
+
+@mixin pip-avatar($size, $font-size){
+  margin: 0px;
+  padding: 0px;
+  width: $size;
+  height: $size;
+
+  md-icon {
+    width: $size;
+    height: $size;
+  }
+
+  md-icon.default_icon {
+    width: $font-size;
+    height: $font-size;
+  }
+
+}
+
+.pip-avatar { @include pip-avatar(80px, 48px) }
+
+@mixin pip-avatar-color($color) {
+    background-color: $color!important;
+}
+
+.pip-avatar-color-0 { @include pip-avatar-color($color-0); }
+.pip-avatar-color-1 { @include pip-avatar-color($color-1); }
+.pip-avatar-color-2 { @include pip-avatar-color($color-2); }
+.pip-avatar-color-3 { @include pip-avatar-color($color-3); }
+.pip-avatar-color-4 { @include pip-avatar-color($color-4); }
+.pip-avatar-color-5 { @include pip-avatar-color($color-5); }
+.pip-avatar-color-6 { @include pip-avatar-color($color-6); }
+.pip-avatar-color-7 { @include pip-avatar-color($color-7); }
+.pip-avatar-color-8 { @include pip-avatar-color($color-8); }
+.pip-avatar-color-9 { @include pip-avatar-color($color-9); }
+.pip-avatar-color-10 { @include pip-avatar-color($color-10); }
+.pip-avatar-color-11 { @include pip-avatar-color($color-11); }
+.pip-avatar-color-12 { @include pip-avatar-color($color-12); }
+.pip-avatar-color-13 { @include pip-avatar-color($color-13); }
+.pip-avatar-color-14 { @include pip-avatar-color($color-14); }
+.pip-avatar-color-15 { @include pip-avatar-color($color-15); }
+
+@mixin pip-face-x($size, $fontSize) {
+  @include circle($size);
+  text-align: center;
+
+  img {
+    border-radius: 50%;
+    width: auto; //$size;
+    height: auto;
+  }
+
+  md-icon {
+    border-radius: 50%;
+    position: relative;
+    width: $size;
+    height: $size;
+    vertical-align: top!important;
+    margin: 0px!important;
+    padding: 0px!important;
+
+    svg {
+      border-radius: 50%;
+    }
+  }
+
+  div {
+    font-size: $fontSize;
+    line-height: $size; 
+  }
+
+  // todo remove when svg icon updated
+  div {
+    border-radius: 50%;
+
+    md-icon.default_icon {
+      width: $fontSize;
+      height: $fontSize;
+      margin-top: ($size - $fontSize)/2!important;
+      fill: white;
+      font-size: $fontSize;//112px;
+      font-family: arial;
+    }
+  }
+}
+
+.pip-face-xxl { @include pip-face-x(180px, 112px); }
+.pip-face-xl { @include pip-face-x(100px, 50px); }
+.pip-face-lg { @include pip-face-x(80px, 48px); }
+.pip-face-md { @include pip-face-x(64px, 38px); }
+.pip-face { @include pip-face-x(40px, 24px); }
+.pip-face-sm-md { @include pip-face-x(56px, 24px); }
+.pip-face-sm { @include pip-face-x(30px, 18px); }
+
+
+@mixin pip-sface-x($size, $fontSize) {
+  width: $size!important;
+  height: $size!important;
+  text-align: center;
+
+  img {
+    width: auto; //$size;
+    height: auto;
+  }
+
+  md-icon {
+    position: relative;
+    width: $size;
+    height: $size;
+    vertical-align: top!important;
+    margin: 0px!important;
+    padding: 0px!important;
+  }
+  
+  div {
+    font-size: $fontSize;
+    line-height: $size; 
+  }
+
+  // todo remove when svg icon updated
+  div {
+    md-icon.default_icon {
+      width: $fontSize;
+      height: $fontSize;
+      margin-top: ($size - $fontSize)/2!important;
+      fill: white;
+      font-size: $fontSize;
+      font-family: arial;
+    }
+  }
+}
+
+.pip-sface-xxl { @include pip-sface-x(180px, 112px); }
+.pip-sface-xl { @include pip-sface-x(100px, 50px); }
+.pip-sface-lg { @include pip-sface-x(80px, 48px); }
+.pip-sface-md { @include pip-sface-x(64px, 38px); }
+.pip-sface { @include pip-sface-x(40px, 24px); }
+.pip-sface-sm { @include pip-sface-x(30px, 18px); }

@@ -1,0 +1,16 @@
+// @file Composition of connected controls CSS styles
+// @copyright Digital Living Software Corp. 2014-2015
+
+@import "../node_modules/pip-webui-all/dist/pip-webui.scss";
+$border-radius: 2px;
+
+@import "picture/Picture";
+@import "collage/Collage";
+@import "avatar/Avatar";
+
+@import "picture_edit/PictureEdit";
+@import "picture_list_edit/PictureListEdit";
+
+@import "gallery_search_dialog/GallerySearchDialog";
+@import "picture_url_dialog/PictureUrlDialog";
+@import "camera_dialog/CameraDialog";

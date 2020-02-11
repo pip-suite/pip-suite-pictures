@@ -1,0 +1,48 @@
+<div pip-focused>
+	<div class="pip-picture-upload pointer pip-focusable"
+		 ng-class="{'pip-picture-error': item.state == 'error'}"
+		 ng-keydown="$ctrl.onKeyDown($event, item)"
+		 tabindex="{{ $ctrl.ngDisabled ? -1 : 0 }}"
+		 ng-repeat="item in $ctrl.control.items | filter: $ctrl.filterItem">
+
+		<div class="pip-default-icon" ng-hide="item.loaded || item.state == 'error'">
+			<md-icon  pip-cancel-drag="true" class="pip-picture-icon" md-svg-icon="icons:{{ $ctrl.icon }}"></md-icon>
+		</div>
+		<div class="pip-default-text" ng-show="$ctrl.control.state == 'error'">
+			<span>{{ $ctrl.errorText | translate }}</span>
+		</div>	
+		<img ng-src="{{ ::item.url }}"
+			 pip-cancel-drag="true"
+			 ng-hide="item.state == 'error'"
+			 ng-class="{ 'pip-image-new': item.state == 'added' }"
+			 ui-event="{ error: '$ctrl.onImageError($event, item)', load: '$ctrl.onImageLoad($event, item)' }">
+
+		<md-button ng-click="$ctrl.onDeleteClick(item)"
+					ng-hide="$ctrl.ngDisabled || $ctrl.control.uploading"
+				   ng-disabled="$ctrl.ngDisabled || $ctrl.control.uploading" tabindex="-1"
+				   aria-label="delete"
+				   class="md-icon-button">
+
+			<md-icon  pip-cancel-drag="true" md-svg-icon="icons:cross"></md-icon>
+		</md-button>
+		<md-progress-linear md-mode="indeterminate" ng-show="item.uploading" value="{{ item.progress }}">
+		</md-progress-linear>
+	</div>
+
+	<button class="pip-picture-upload pip-picture-drop pip-focusable"
+			pip-add-image
+			pip-multi="true"
+		    ng-focus="$ctrl.onFocus()"
+	        ng-blur="$ctrl.onBlur()"
+			pip-changed="$ctrl.readItemLocally(url, uriData, file, picture)"
+			ng-disabled="$ctrl.ngDisabled || $ctrl.control.uploading">
+
+		<div class="pip-default-icon">
+			<md-icon  pip-cancel-drag="true" class="pip-picture-icon" md-svg-icon="icons:{{ $ctrl.icon }}"></md-icon>
+		</div>
+		<div class="pip-default-text">
+			<span>{{ $ctrl.text | translate }}</span>
+		</div>
+	</button>
+	<div class="clearfix"></div>
+</div>

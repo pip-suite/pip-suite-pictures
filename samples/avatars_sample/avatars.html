@@ -1,0 +1,84 @@
+<h3 class="text-subhead2">Avatar for Anton Edit</h3>
+<pip-avatar-edit pip-id="avatarEdit.id" 
+    pip-created="onPictureCreated($event)" 
+    pip-changed="onPictureChanged($event)" 
+    pip-default-text="'Change avatar'"
+    pip-reset="isReseting()" ng-disabled="pictureDisabled">
+</pip-avatar-edit>
+
+<!--<pip-avatar-edit pip-id="avatarEdit.id" 
+    pip-created="onPictureCreated" 
+    pip-changed="onPictureChanged" 
+    pip-default-text="'Change avatar'"
+    pip-reset="isReseting()" ng-disabled="pictureDisabled">
+</pip-avatar-edit>-->
+
+<div class="h48 layout-row layout-align-start-center">
+    <md-button ng-click="onSaveClick()" class="lm0">{{ 'SAVE' | translate }}</md-button>
+    <md-button ng-click="onDisableReset()">
+        <span ng-if="isReset">{{ 'DISABLE_RESET' | translate }}</span>
+        <span ng-if="!isReset">{{ 'ENABLE_RESET' | translate }}</span>
+    </md-button>
+    <md-button ng-click="pictureDisabled = !pictureDisabled">{{ 'ENABLE_DISABLE' | translate }}</md-button>
+</div>
+</br>
+<h4>Anton avatar</h4>
+<pip-avatar class="pip-face-sm" pip-rebind="true" pip-rebind-avatar="true" pip-id="avatar1.id">
+</pip-avatar>
+<pip-avatar  pip-rebind="true" pip-rebind-avatar="true" pip-id="avatar1.id">
+</pip-avatar>
+<br>
+<br>
+
+
+<h3 class="text-subhead2">Avatars</h3>
+<div>
+    <p class="text-body2 tm16 bm16">{{ 'AVATARS_FOR_USER_WITH_IMAGES' | translate }}</p>
+    <div class="avatar-section">
+        <pip-avatar class="pip-face-sm" pip-rebind="true" pip-rebind-avatar="true" pip-id="avatars[avatarIndex].id" 
+                pip-url="avatars[avatarIndex].uri" pip-name="'stas'">
+        </pip-avatar>
+
+        <pip-avatar class="pip-face" pip-rebind="true" pip-id="avatars[avatarIndex].id" 
+            pip-url="avatars[avatarIndex].uri" pip-name="'Mark'">
+        </pip-avatar>
+
+        <pip-avatar class="pip-face-md" pip-rebind="true" pip-id="avatars[avatarIndex].id" 
+            pip-url="avatars[avatarIndex].uri" pip-name="'Kate'">
+        </pip-avatar>
+
+        <pip-avatar class="pip-face-lg" pip-rebind="true" pip-id="avatars[avatarIndex].id" pip-url="avatars[avatarIndex].uri">
+        </pip-avatar>
+
+        <pip-avatar pip-rebind="true" pip-id="avatars[avatarIndex].id" pip-url="avatars[avatarIndex].uri">
+        </pip-avatar>
+    </div>
+    <md-button ng-click="newAvatars()" class="lm0">
+        {{ 'UPDATE_AVATAR' | translate }}
+    </md-button>
+
+    <md-divider class="tm8 pip-list-divider"></md-divider>
+
+    <p class="text-body2 tm16 bm16">{{ 'AVATARS_FOR_USERS_WITHOUT_IMAGES' | translate }}</p>
+
+    <div class="avatar-section">
+        <pip-avatar class="pip-face-lg" pip-id="'0044191e68ba450180f2afed415deecciuo'">
+        </pip-avatar>
+
+        <pip-avatar class="pip-face-lg" pip-url="'http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-ooolaptop.jpg'">
+        </pip-avatar>
+    </div>
+
+
+    <md-divider class="tm8 pip-list-divider"></md-divider>
+
+    <h3 class="text-subhead2">{{ 'AVATAR_GIANT' | translate }}</h3>
+    <div>
+        <pip-avatar class="pip-sface-xxl" pip-id="'0044191e68ba450180f2afed415deecc'">
+        </pip-avatar>
+
+        <pip-avatar class="pip-sface-xxl" pip-url="'http://www.rd.com/wp-content/uploads/sites/2/2016/04/01-cat-wants-to-tell-you-laptop.jpg'">
+        </pip-avatar>
+    </div>
+
+</div>
